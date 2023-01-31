@@ -29,6 +29,8 @@ const Tample = () => {
         <div className="">
           <div className="font-extrabold m-auto text-center justify-center flex flex-col gap-y-8  ring-cyan-700 w-[90%] px-4 p-4">
             <p className="pt-5 pb-3 bg-orange-800 rounded-full lg:text-6xl md:text-3xl html text-slate-50 ">
+             
+
               श्री श्री 108 रूद्र महायज्ञ
             </p>
             <h3 className="lg:text-4xl md:text-2xl lg:leading-[3.5rem] md:leading-[2.5rem]">
@@ -87,7 +89,6 @@ const Tample = () => {
           </div>
         </div>
       </div>
-    
     </div>
   )
 }

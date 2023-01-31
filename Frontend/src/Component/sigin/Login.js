@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "./login.css"
 import { useNavigate } from "react-router-dom";
 
 const Login =() => {
@@ -75,7 +76,7 @@ const Login =() => {
       }
   return (
     <>
-      <div className="container">
+      <div className="container ">
         <section
           style={{
             display: "flex",
@@ -84,26 +85,30 @@ const Login =() => {
           }}
         >
           <div className="leftdata " style={{ margin: 30, width: 400 }}>
-            <h3>Sign Up</h3>
+            <h3></h3>
             <Form>
               <Form.Group className="mb-3 col-lg-11" controlId="formBasicEmail">
-                <Form.Control name="email"  onChange={getdata} type="email" placeholder="Enter email" />
+                <Form.Control className="inputs" name="email"  onChange={getdata} type="email" placeholder="Enter email" />
               </Form.Group>
               <Form.Group
                 className="mb-3 col-lg-11"
                 controlId="formBasicPassword"
               >
-                <Form.Control name="password"  onChange={getdata} type="password" placeholder="Password" />
+                <Form.Control className="inputs" name="password"  onChange={getdata} type="password" placeholder="Password" />
               </Form.Group>
 
-              <Button onClick={submitdata} variant="primary" type="submit">
+              <Button className="lbtn"  onClick={submitdata} variant="primary" type="submit">
                 Submit
               </Button>
               <p>Already Have an Account SignIn</p>
             </Form>
           </div>
+          <img  src="mahadev.png" alt='mahadev' />
         </section>
+        
       </div>
+      
+    
     </>
   )
 }
