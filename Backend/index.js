@@ -1,22 +1,24 @@
-const express = require('express');
-const cors=require('cors');
-const { connection } = require('./config/db');
-const {userroute}=require("./routes/user.route")
-require('dotenv').config()
+const express = require("express");
+const cors = require("cors");
+const { connection } = require("./config/db");
+const { userroute } = require("./routes/user.route");
+const { userModel } = require("./models/user.model");
+require("dotenv").config();
+const port = 8080 || process.env.port;
 
-
-const app=express()
+const app = express();
 
 app.use(express.json());
 
 app.use(cors());
-
+// users app routing
 app.use("/router", userroute);
-app.use('/', (req, res) => {
-    res.send("home page")
-})
 
-app.listen(5040, () => {
-    connection();
-    console.log("anything")
-})
+app.use("/", async (req, res) => {
+  res.send("home page");
+});
+
+app.listen(port, () => {
+  connection();
+  console.log(`listening on http://localhost:${port}/`);
+});
