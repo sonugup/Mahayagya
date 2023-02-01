@@ -15,7 +15,12 @@ app.use(cors());
 app.use("/router", userroute);
 
 app.use("/", async (req, res) => {
-  res.send("home page");
+  if (req.url == "/") {
+    res.send("home page");
+  }
+  if (req.url == "*") {
+    res.send("please enter a correct url path");
+  }
 });
 
 app.listen(port, () => {
