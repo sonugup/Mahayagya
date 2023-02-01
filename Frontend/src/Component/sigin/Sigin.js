@@ -6,10 +6,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 const Sigin = () => {
    const Naviget=useNavigate()
   const [inputval, setInputval] =useState({
-    name:"",
+    first_name:"",
+    last_name:"",
     email:"",
-    date:"",
-    password:""
+    password:"",
+    number:"",
+    role:""
   })
 console.log(inputval)
 
@@ -31,21 +33,32 @@ const [data, setData]=useState([])
 
   const submitdata= (e) => {
     e.preventDefault();
-    const {name, email, date, password} = inputval
+    const {first_name, last_name, email, password, number, role} = inputval
 
-    if(name===""){
+    if(first_name===""){
       alert("name field is requred")
-    } else if(email===""){
+    }
+    if(last_name===""){
+      alert("name field is requred")
+    }
+     else if(email===""){
       alert("email field is requred")
     }else if(!email.includes("@")){
       alert("@ field is requred")
-    }else if(date===""){
-      alert("data field is requred")
     }
     else if(password===""){
       alert("name field is requred")
     }else if(password.length<4){
       alert("password min 4 length is requred")
+    }
+    else if(number===""){
+      alert("Number field is requred")
+    }
+    else if(number.length<10){
+      alert("Number  is not requred")
+    }
+    else if(role===""){
+      alert("data field is requred")
     }
     else{
         console.log("succsseful")
@@ -64,39 +77,53 @@ const [data, setData]=useState([])
           }}
         >
           <div className="leftdata " style={{ margin: 30, width: 400 }}>
-            <h3>Sign Up</h3>
+            <h3 className="sname">श्री श्री 108 रूद्र महायज्ञ</h3>
             <Form>
               <Form.Group
                 className="mb-3 col-lg-11"
                 controlId="formBasicPassword"
               >
-                <Form.Control name="name"  onChange={getdata} type="text" placeholder="Name" />
+                <Form.Control className="inputs" name="first_name"  onChange={getdata} type="text" placeholder="Enter the First Name" />
+              </Form.Group>
+              <Form.Group
+                className="mb-3 col-lg-11"
+                controlId="formBasicPassword"
+              >
+                <Form.Control className="inputs" name="last_name"  onChange={getdata} type="text" placeholder="Enter the Last Name" />
               </Form.Group>
               <Form.Group className="mb-3 col-lg-11" controlId="formBasicEmail">
-                <Form.Control name="email"  onChange={getdata} type="email" placeholder="Enter email" />
+                <Form.Control className="inputs" name="email"  onChange={getdata} type="email" placeholder="Enter the email" />
               </Form.Group>
               <Form.Group
                 className="mb-3 col-lg-11"
                 controlId="formBasicPassword"
               >
-                <Form.Control  name="date" onChange={getdata} type="date" />
+                <Form.Control className="inputs" name="password"  onChange={getdata} type="password" placeholder="Enter the Password" />
               </Form.Group>
               <Form.Group
                 className="mb-3 col-lg-11"
                 controlId="formBasicPassword"
               >
-                <Form.Control name="password"  onChange={getdata} type="password" placeholder="Password" />
+                <Form.Control className="inputs" name="mobile" onChange={getdata} type="number" placeholder="Enter the Mobile Number" />
+              </Form.Group>
+              <Form.Group
+                className="mb-3 col-lg-11"
+                controlId="formBasicPassword"
+              >
+                <Form.Control className="inputs" name="role" onChange={getdata} type="number" placeholder="Enter the your Role" />
               </Form.Group>
 
-              <Button onClick={submitdata} variant="primary" type="submit">
+              <Button className="lbtn" onClick={submitdata} variant="primary" type="submit">
                 Submit
               </Button>
               <p>Already Have an Account <span><NavLink to="/login">SignIn</NavLink></span> </p>
             </Form>
           </div>
+          <img  src="mahadev.png" alt='mahadev' />
         </section>
       </div>
-    </>
+      
+   </>
   );
 };
 
